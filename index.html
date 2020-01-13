@@ -5,17 +5,19 @@
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+        
     </head>
 
     <body>
         <div class="container">
             <h1>Password Generator</h1>
             <div class="passwordResult-container">
-                <span id="password"></span>
                 <button class="button" id="copy">
-                    clipboard
-                    <!-- Insert clipboard icon here-->
+                    <i class="far fa-clipboard"></i>
                 </button>
+                <span id="password"></span>
             </div>
         
             <div class="parameters">
@@ -46,4 +48,5 @@
             </button>
         </div>
     </body>
+    <script src="generator.js"></script>
 </html>
