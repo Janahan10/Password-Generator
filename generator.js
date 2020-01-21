@@ -52,10 +52,14 @@ function createPassword (lower, upper, num, symbol, length){
     for(var i = 0; i < length; i += count){
         typeArray.forEach(type => {
             const functionName = Object.keys(type)[0];
-            console.log('functionName: ', functionName)
+            console.log('functionName: ', functionName);
             createdPassword += randomFunction[functionName]();
         });
     }
+
+    const finalPass = createdPassword.slice(0, length);
+
+    return finalPass;
 }
 
 // parameter functions
@@ -74,7 +78,7 @@ function getUpperCaseChar() {
 //get random number
 function getRandNumber() {
     var num = Math.floor(Math.random() * 10) + 48;
-    return String.fromCharCode(num)
+    return +String.fromCharCode(num)
 }
 
 //get random symbol
