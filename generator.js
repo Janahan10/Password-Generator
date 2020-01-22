@@ -30,7 +30,7 @@ createBtn.addEventListener('click', () => {
 });
 
 //create password function
-function createPassword (lower, upper, num, symbol, length){
+function createPassword (lower, upper, number, symbol, length){
 
     // 1. init password variable
     // 2. filter unchecked parameters
@@ -39,20 +39,23 @@ function createPassword (lower, upper, num, symbol, length){
 
     var createdPassword = '';
 
-    const count = lower + upper + num + symbol;
+    const count = lower + upper + number + symbol;
     //console.log('count: ', count);
 
-    const typeArray = [ { lower }, { upper }, { num }, { symbol }].filter(item => Object.values(item)[0]);
-    //console.log(typeArray)
+    const typeArray = [ { lower }, { upper }, { number }, { symbol }].filter(
+        item => Object.values(item)[0]
+    );
+    console.log(typeArray)
 
     if(count === 0){
         return '';
     }
 
     for(var i = 0; i < length; i += count){
-        typeArray.forEach(type => {
+
+        typeArray.forEach(type =>{
             const functionName = Object.keys(type)[0];
-            console.log('functionName: ', functionName);
+            // console.log('funcName = ' , functionName);
             createdPassword += randomFunction[functionName]();
         });
     }
@@ -61,6 +64,24 @@ function createPassword (lower, upper, num, symbol, length){
 
     return finalPass;
 }
+
+// copy to clipboard function
+copyClipboard.addEventListener('click', () => {
+    
+    const textArea = document.createElement('textarea');
+    const pass = resultingPass.innerText;
+
+    if(!pass){
+        return;
+    } 
+
+    textArea.value = pass;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    textArea.remove();
+    alert('Password Copied');
+})
 
 // parameter functions
 //get random lower Case letter
